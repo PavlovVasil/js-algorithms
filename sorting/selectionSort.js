@@ -10,20 +10,22 @@
 let arr = [3, 5, 1, -22, 0, 201, -10, 84]
 
 const sort = (arr) => { 
-    let n = arr.length; 
+    const sortedArr = [...arr];
+    let n = sortedArr.length; 
     // One by one move boundary of unsorted subarray 
     for (let i = 0; i < n-1; i++) 
     { 
         // Find the minimum element in unsorted array 
         let min_idx = i; 
         for (let j = i+1; j < n; j++) 
-            if (arr[j] < arr[min_idx]) 
+            if (sortedArr[j] < sortedArr[min_idx]) 
                 min_idx = j; 
-
+        debugger
         // Swap the found minimum element with the first 
         // element 
-        [arr[i], arr[min_idx]] = [arr[min_idx], arr[i]] 
-    } 
+        [sortedArr[i], sortedArr[min_idx]] = [sortedArr[min_idx], sortedArr[i]] 
+    }
+    return sortedArr;
 }
 
-sort(arr);
+console.log(sort(arr));
