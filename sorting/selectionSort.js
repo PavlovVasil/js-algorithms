@@ -7,3 +7,23 @@
  * subarray is picked and moved to the sorted subarray.
 */
 
+let arr = [3, 5, 1, -22, 0, 201, -10, 84]
+
+const sort = (arr) => { 
+    let n = arr.length; 
+    // One by one move boundary of unsorted subarray 
+    for (let i = 0; i < n-1; i++) 
+    { 
+        // Find the minimum element in unsorted array 
+        let min_idx = i; 
+        for (let j = i+1; j < n; j++) 
+            if (arr[j] < arr[min_idx]) 
+                min_idx = j; 
+
+        // Swap the found minimum element with the first 
+        // element 
+        [arr[i], arr[min_idx]] = [arr[min_idx], arr[i]] 
+    } 
+}
+
+sort(arr);
